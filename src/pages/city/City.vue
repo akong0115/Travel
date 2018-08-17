@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :cities="cities" :hotCities="hotCities"></city-list>
-    <dictionary-map :cities="cities"></dictionary-map>
+    <city-list :cities="cities" :hotCities="hotCities" :letter="letter"></city-list>
+    <dictionary-map :cities="cities" @change="handleChange"></dictionary-map>
   </div>
 </template>
 
@@ -20,7 +20,8 @@ export default {
   data () {
     return {
       cities: {},
-      hotCities: []
+      hotCities: [],
+      letter: ''
     }
   },
   mounted () {
@@ -38,6 +39,9 @@ export default {
         this.hotCities = res.data.hotCities
         this.cities = res.data.cities
       }
+    },
+    handleChange (value) {
+      this.letter = value
     }
   }
 }

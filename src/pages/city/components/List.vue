@@ -21,6 +21,7 @@
         class="dictionary"
         v-for="(map,key) of cities"
         :key="key"
+        :ref="key"
       >
         <div class="header border-topbottom">{{key}}</div>
         <ul class="dictionary-ul">
@@ -42,10 +43,16 @@ export default {
   name: 'CityList',
   props: {
     hotCities: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   mounted () {
     this.scroll = new BSscroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      this.scroll.scrollToElement(this.$refs[this.letter][0])
+    }
   }
 }
 </script>
