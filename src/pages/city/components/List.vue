@@ -12,53 +12,24 @@
       <div class="hot-city">
         <div class="header border-topbottom">热门城市</div>
         <ul class="hot-city-ul">
-          <li class="wrapper">
-            <div class="item">北京</div>
-          </li>
-          <li class="wrapper">
-            <div class="item">北京</div>
-          </li>
-          <li class="wrapper">
-            <div class="item">北京</div>
-          </li>
-          <li class="wrapper">
-            <div class="item">北京</div>
-          </li>
-          <li class="wrapper">
-            <div class="item">北京</div>
+          <li class="wrapper" v-for="item of hotCities" :key="item.id">
+            <div class="item">{{item.name}}</div>
           </li>
         </ul>
       </div>
-      <div class="dictionary">
-        <div class="header border-topbottom">A</div>
+      <div
+        class="dictionary"
+        v-for="(map,key) of cities"
+        :key="key"
+      >
+        <div class="header border-topbottom">{{key}}</div>
         <ul class="dictionary-ul">
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-        </ul>
-      </div>
-      <div class="dictionary">
-        <div class="header border-topbottom">B</div>
-        <ul class="dictionary-ul">
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
-          <li class="dictionary-item border-bottom">阿拉尔</li>
+          <li
+            class="dictionary-item border-bottom"
+            v-for="item of map"
+            :key="item.id"
+          >
+            {{item.name}}</li>
         </ul>
       </div>
     </div>
@@ -69,6 +40,10 @@
 import BSscroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    hotCities: Array,
+    cities: Object
+  },
   mounted () {
     this.scroll = new BSscroll(this.$refs.wrapper)
   }

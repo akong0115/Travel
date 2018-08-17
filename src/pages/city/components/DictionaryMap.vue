@@ -1,24 +1,23 @@
 <template>
   <ul class="dictionary">
-    <li class="item">A</li>
-    <li class="item">B</li>
-    <li class="item">C</li>
-    <li class="item">D</li>
-    <li class="item">E</li>
+    <li class="item" v-for="(item,key) of cities" :key="item.id">{{key}}</li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'DictionaryMap'
+  name: 'DictionaryMap',
+  props: {
+    cities: Object
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
   @import '~styles/varibles.styl'
   .dictionary
-    position :fixed
-    top :0
+    position :absolute
+    top :1.58rem
     bottom :0
     right :0
     display :flex
