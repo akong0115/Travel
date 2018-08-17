@@ -2,8 +2,8 @@
   <div class="recommend">
     <div class="recommend-title">热门推荐</div>
     <ul class="recommend-items">
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
-        <img class="item-img" :src="item.url">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
+        <img class="item-img" :src="item.imgUrl">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
           <p class="item-desc">{{item.desc}}</p>
@@ -16,47 +16,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: 1,
-          url: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-          title: '上海迪士尼乐园',
-          desc: '上海迪士尼乐园快乐童话暑假，带你畅游迪士尼世界'
-        },
-        {
-          id: 2,
-          url: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-          title: '上海迪士尼乐园',
-          desc: '上海迪士尼乐园快乐童话暑假，带你畅游迪士尼世界'
-        },
-        {
-          id: 3,
-          url: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-          title: '上海迪士尼乐园',
-          desc: '上海迪士尼乐园快乐童话暑假，带你畅游迪士尼世界'
-        },
-        {
-          id: 4,
-          url: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-          title: '上海迪士尼乐园',
-          desc: '上海迪士尼乐园快乐童话暑假，带你畅游迪士尼世界'
-        },
-        {
-          id: 5,
-          url: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-          title: '上海迪士尼乐园',
-          desc: '上海迪士尼乐园快乐童话暑假，带你畅游迪士尼世界'
-        },
-        {
-          id: 6,
-          url: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg',
-          title: '上海迪士尼乐园',
-          desc: '上海迪士尼乐园快乐童话暑假，带你畅游迪士尼世界'
-        }
-      ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
