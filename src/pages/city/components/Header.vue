@@ -27,4 +27,6 @@ export default {
       left :0
       font-size :.4rem
       color :#fff
+      text-align :center
+      margin-left :.1rem
 </style>
