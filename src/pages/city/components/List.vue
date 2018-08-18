@@ -5,14 +5,19 @@
         <div class="header border-topbottom">所在位置</div>
         <ul class="location-ul">
           <li class="wrapper">
-            <div class="item">北京</div>
+            <div class="item">{{this.city}}</div>
           </li>
         </ul>
       </div>
       <div class="hot-city">
         <div class="header border-topbottom">热门城市</div>
         <ul class="hot-city-ul">
-          <li class="wrapper" v-for="item of hotCities" :key="item.id">
+          <li
+            class="wrapper"
+            v-for="item of hotCities"
+            :key="item.id"
+            @click="chooseCity(item.name)"
+          >
             <div class="item">{{item.name}}</div>
           </li>
         </ul>
@@ -29,6 +34,7 @@
             class="dictionary-item border-bottom"
             v-for="item of map"
             :key="item.id"
+            @click="chooseCity(item.name)"
           >
             {{item.name}}</li>
         </ul>
@@ -39,12 +45,23 @@
 
 <script>
 import BSscroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
   props: {
     hotCities: Array,
     cities: Object,
     letter: String
+  },
+  computed: {
+    ...mapState(['city'])
+  },
+  methods: {
+    chooseCity (cityName) {
+      this.changeCity(cityName)
+      this.$router.push('/')
+    },
+    ...mapMutations(['changeCity'])
   },
   mounted () {
     this.scroll = new BSscroll(this.$refs.wrapper)
