@@ -51,6 +51,7 @@ export default {
 <style lang="stylus" scoped>
   .Gallery >>> .swiper-container
     overflow :inherit
+    width :100%
   .Gallery
     z-index :999
     position :fixed
