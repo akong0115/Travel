@@ -13,17 +13,20 @@
           <h1 class="banner-title">{{sightName}}</h1>
         </div>
     </div>
-    <banner-gallery :imgs="galleryImgs" @closeGallery="closeGallery" v-show="showGallery" :update="update"></banner-gallery>
+    <fade>
+      <banner-gallery :imgs="galleryImgs" @closeGallery="closeGallery" v-show="showGallery" :update="update"></banner-gallery>
+    </fade>
   </div>
 </template>
 
 <script>
 import BannerGallery from 'common/gallery/Gallery'
-
+import Fade from 'common/fade/Fade'
 export default {
   naem: 'Banner',
   components: {
-    BannerGallery
+    BannerGallery,
+    Fade
   },
   data () {
     return {
